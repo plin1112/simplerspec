@@ -1,4 +1,4 @@
-# simplerspec
+<a href="https://github.com/philipp-baumann/simplerspec/blob/master/simplerspec-logo.png"><img src="https://github.com/philipp-baumann/simplerspec/blob/master/simplerspec-logo.png" width="300"/></a>
 
 Travis-CI build status (Debian Linux) [![Travis Build Status](https://travis-ci.org/philipp-baumann/simplerspec.svg?branch=master)](https://travis-ci.org/philipp-baumann/simplerspec)
 
@@ -9,19 +9,24 @@ AppVeyor build status (Windows) [![AppVeyor Build Status](https://ci.appveyor.co
 The simplerspec package aims to facilitate spectra and additional data handling and model development for spectroscopy applications such as infrared soil spectroscopy. Different helper functions are designed to create a 
 data and modeling workflow. Data inputs and outputs are stored in common S3 `R` objects (`lists` and `data frames`), using in addition `data.table` and `tibble` extensions. The following features are covered in the current version of the package:
 
-1. `read_opus_univ`: Read spectra and metadata from Bruker OPUS binary files into R list
-2. `gather_spc`: Gather spectra and metadata from list into a tibble object (list-columns)
-4. `resample_spc`: Resample spectra to new wavenumber intervals
-2. `average_spc`: Average spectra for replicate scans
-5. `preprocess_spc`: Perform pre-processing of spectra
-6. `join_chem_spc`: Join chemical and spectral data sets by `sample_id`
-7. `plot_spc_ext`: Extended spectral plotting; e.g. group spectra using different
+1. `read_opus_univ()`: Read spectra and metadata from Bruker OPUS binary files into R list
+2. `gather_spc()`: Gather spectra and metadata from list into a tibble object (list-columns)
+4. `resample_spc()`: Resample spectra to new wavenumber intervals
+2. `average_spc()`: Average spectra for replicate scans
+5. `preprocess_spc()`: Perform pre-processing of spectra
+6. `join_chem_spc()`: Join chemical and spectral data sets by `sample_id`
+7. `plot_spc_ext()`: Extended spectral plotting; e.g. group spectra using different
 panels or color spectra based on chemical reference values to explore trends.
-8. `fit_pls`: Perform model tuning and evaluation based on Partial Least Squares (PLS) regression
-9. `select_ref_spc`: Select a set of reference samples to measured by
+8. `fit_pls()`: Perform model tuning and evaluation based on Partial Least Squares (PLS) regression
+9. `select_ref_spc()`: Select a set of reference samples to measured by
 traditional analysis methods when no a priori sample data except spectra are 
 available (based on Kennard-Stones sampling)
-10. `predict_from_spc`: Predict multiple chemical properties from a list of calibrated models and new soil spectra
+10. `predict_from_spc()`: Predict multiple chemical properties from a list of calibrated models and new soil spectra
+11. `assess_multimodels()`: Assess model performance given multiple pairs of predicted and measured variables.
+
+# Projects using simplerspec
+
+* [Spectral platform for soil samples of the Democratic Republic of Congo](https://sae-interactive-data.ethz.ch/simplerspec.drc/)
 
 # Cheatsheet
 
@@ -115,8 +120,8 @@ spc_list <- read_opus_univ(fnames = lf, extract = c("spc"))
 #> ...
 ```
 
-Pipes can make R code more readable and fit to the step-wise data processing
-in the context of developing spectral models. The pipe operator (`%>%`, called "then") is a new operator in R that was introduced
+Pipes can make R code more readable and allows step-wise data processing
+when developing spectral models. The pipe operator (`%>%`, called "then") is a new operator in R that was introduced
 with the magrittr package. It facilitates readability of code
 and avoids to type intermediate objects. The basic behavior of
 the pipe operator is
